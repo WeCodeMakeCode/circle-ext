@@ -19,7 +19,7 @@ namespace circle {
         _color: number = 0;
         _fillColor: number = 0;
         _filled: boolean = false;
-        imageWH: number:0;
+        imageWH: number = 0;
         centerXY:number = 0;
         constructor(radius: number, color: number, filled: boolean = false) {
             this._radius = radius;
