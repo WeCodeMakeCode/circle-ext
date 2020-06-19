@@ -35,7 +35,7 @@ namespace circle {
             if (this._sprite!== null){
                 this._sprite.destroy();
             }
-            this.imageWH = 2 * (this._radius + 1);
+            this.imageWH = 2 * (this._radius + 2);
             this.centerXY = this.imageWH / 2;
             this._img = image.create(this.imageWH, this.imageWH);
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
