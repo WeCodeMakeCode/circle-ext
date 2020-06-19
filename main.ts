@@ -29,6 +29,12 @@ namespace circle {
             this.doImageAndSprite();
         }
         private doImageAndSprite() {
+            if (this._img != null ){
+                this._img = null;
+            }
+            if (this._sprite!== null){
+                this._sprite.destroy();
+            }
             this.imageWH = 2 * (this._radius + 1);
             this.centerXY = this.imageWH / 2;
             this._img = image.create(this.imageWH, this.imageWH);
