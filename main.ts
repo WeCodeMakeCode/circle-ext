@@ -28,14 +28,14 @@ namespace circle {
             this._filled = filled;
             this.imageWH = 2 * (this._radius + 1);
             this.centerXY = this.imageWH / 2;
-            this.docenterXYImage();
+            this.doImage();
             this._sprite = sprites.create(this._img);
         }
         private doImage() {
-            this._img = image.create(2 * this._radius + 2, 2 * this._radius + 1);
+            this._img = image.create(this.imageWH, this.imageWH);
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
             if (this._filled) {
-                this._img.fillCircle(this.centerXY, this._centerXY, this._radius, this._fillColor)
+                this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
             }
         }
         //% group="Properties" weight=98
