@@ -73,16 +73,16 @@ namespace circle {
         get fillColor() {
             return this._fillColor;
         }
-        //% group="Actions" weight=90
-        //% block="fill $myCircle with color $color"
+        //% group="Actions" weight=97
+        //% block="fill $myCircle=variables_get(myCircle) with color $color"
         //% color.shadow="colorNumberPicker"
         fill(color: number) {
             this._filled = true;
             this._fillColor = color;
             this.doImage();
         }
-        //% group="Actions" weight=90
-        //% block="erase fill from $myCircle"
+        //% group="Actions" weight=97
+        //% block="erase fill from $myCircle=variables_get(myCircle)"
         unfill() {
             this._filled = false;
             this._img.fillCircle(this._radius, this._radius, this._radius, 0)
