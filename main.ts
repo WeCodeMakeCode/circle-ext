@@ -85,6 +85,7 @@ namespace circle {
         //% block="erase fill from %Circle(myCircle)"
         unfill() {
             this._filled = false;
+            this._fillColor = 0;
             this._img.fillCircle(this._radius, this._radius, this._radius, 0)
         }
     }
