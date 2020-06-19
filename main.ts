@@ -1,8 +1,7 @@
 //% weight=100 color=#008080
 //% groups='["Create", "Properties, "Actions"]'
 namespace circle {
-    //% group="Create"
-    //% weight=100
+    //% group="Create" weight=99
     //% block="create circle of radius %radius and color $color || filled is $filled"
     //% blockSetVariable=myCircle
     //% radius.min=5 radius.max=60 radius.defl=30
@@ -35,47 +34,46 @@ namespace circle {
                 this._img.fillCircle(this._radius, this._radius, this._radius, this._color)
             }
         }
-        //% group="Properties"
-        //% weight=99
+        //% group="Properties" weight=98
         get circle(): Sprite {
             return this._sprite;
         }
-        //% group="Properties"
+        //% group="Properties" weight=98
         get imaage(): Image {
             return this._img;
         }
-        //% group="Properties"
+        //% group="Properties" weight=98
         //% blockSetVariable="myCircle"
         //% blockCombine block="color""
         get color(): number {
             return this._color;
         }
-        //% group="Properties"
+        //% group="Properties" weight=98
         //% blockSetVariable="myCircle"
         //% blockCombine block="color""
         set color(value: number) {
             this._color = value;
         }
-        //% group="Properties"
+        //% group="Properties" weight=98
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius""
         get radius(): number {
             return this._radius;
         }
-        //% group="Properties"
+        //% group="Properties" weight=98
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius"
         set radius(value: number) {
             this._radius = value;
         }
-        //% group="Properties"
+        //% group="Properties" weight=98
         //% weight=98
         //% blockSetVariable="myCircle"
         //% blockCombine block="Fill Color"
         get fillColor() {
             return this._fillColor;
         }
-        //% group="Actions"
+        //% group="Actions" weight=97
         //% block="fill $myCircle with color $color"
         //% color.shadow="colorNumberPicker"
         fill(color: number) {
@@ -83,7 +81,7 @@ namespace circle {
             this._fillColor = color;
             this.doImage();
         }
-        //% group="Actions"
+        //% group="Actions" weight=97
         //% block="erase fill from $myCircle"
         unfill() {
             this._filled = false;
