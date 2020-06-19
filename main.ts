@@ -79,7 +79,7 @@ namespace circle {
         fill(color: number) {
             this._filled = true;
             this._fillColor = color;
-            this._img.fillCircle(this._radius, this._radius, this._radius, this._color)
+            this._img.fillCircle(this._radius, this._radius, this._radius, this._fillColor)
         }
         //% group="Actions" weight=97
         //% block="erase fill from %Circle(myCircle)"
