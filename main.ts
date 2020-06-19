@@ -75,7 +75,6 @@ namespace circle {
         }
         //% group="Actions" weight=97
         //% block="fill %Circle(myCircle) with color $color"
-        //% color.shadow="colorNumberPicker"
         fill(color: number) {
             this._filled = true;
             this._fillColor = color;
