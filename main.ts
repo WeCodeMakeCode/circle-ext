@@ -70,6 +70,9 @@ namespace circle {
         //% blockCombine block="radius"
         set radius(value: number) {
             this._radius = value;
+            this.imageWH = 2 * (this._radius + 1);
+            this.centerXY = this.imageWH / 2;
+            this.doImage();
         }
         //% group="Properties" weight=98
         //% weight=98
