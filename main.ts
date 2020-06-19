@@ -32,7 +32,7 @@ namespace circle {
             }
         }
         //% group="Properties"
-        //% blockCombine block="sprute""
+        //% blockCombine block="sprite""
         get circle(): Sprite {
             return this._sprite;
         }
@@ -61,7 +61,7 @@ namespace circle {
         }
         //% group="Properties"
         //% blockSetVariable="myCircle"
-        //% blockCombine block="radius""
+        //% blockCombine block="radius"
         set radius(value: number) {
             this._radius = value;
         }
@@ -80,9 +80,9 @@ namespace circle {
             this.doImage();
         }
         //% group="Actions"
-        //% block="erase fill from $myCircle
+        //% block="erase fill from $myCircle"
         unfill() {
             this._filled = false;
-            this._img.fillCircle(radius, radius, radius, 0)
+            this._img.fillCircle(this._radius, this._radius, this._radius, 0)
         }
     }
