@@ -26,18 +26,19 @@ namespace circle {
             this._color = color;
             this._fillColor = 0;
             this._filled = filled;
+            this.doImageAndSprite();
+        }
+        private doImageAndSprite() {
             this.imageWH = 2 * (this._radius + 1);
             this.centerXY = this.imageWH / 2;
-            this.doImage();
-            this._sprite = sprites.create(this._img);
-        }
-        private doImage() {
             this._img = image.create(this.imageWH, this.imageWH);
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
             if (this._filled) {
                 this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
             }
+            this._sprite = sprites.create(this._img);
         }
+
         //% group="Properties" weight=98
         get circle(): Sprite {
             return this._sprite;
@@ -69,10 +70,9 @@ namespace circle {
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius"
         set radius(value: number) {
+            // DO MIN AND MAX
             this._radius = value;
-            this.imageWH = 2 * (this._radius + 1);
-            this.centerXY = this.imageWH / 2;
-            this.doImage();
+            this.doImageAndSprite();
         }
         //% group="Properties" weight=98
         //% weight=98
