@@ -2,6 +2,7 @@
 //% groups='["Create", "Properties, "Actions"]'
 namespace circle {
     //% group="Create"
+    //% weight=100
     //% block="create circle of radius %radius and color $color || filled is $filled"
     //% blockSetVariable=myCircle
     //% radius.min=5 radius.max=60 radius.defl=30
@@ -35,6 +36,7 @@ namespace circle {
             }
         }
         //% group="Properties"
+        //% weight=99
         get circle(): Sprite {
             return this._sprite;
         }
@@ -67,6 +69,7 @@ namespace circle {
             this._radius = value;
         }
         //% group="Properties"
+        //% weight=98
         //% blockSetVariable="myCircle"
         //% blockCombine block="Fill Color"
         get fillColor() {
