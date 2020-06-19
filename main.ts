@@ -57,6 +57,7 @@ namespace circle {
         //% blockCombine block="color""
         set color(value: number) {
             this._color = value;
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
         //% group="Properties" weight=98
         //% blockSetVariable="myCircle"
