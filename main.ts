@@ -10,6 +10,8 @@ namespace circle {
     export function createCircleSprite(radius: number, color: number, filled:boolean = false): Circle {
         return new Circle(radius, color, filled)
     }
+}
+//% blockNamespace=circle3
     class Circle {
         _sprite: Sprite = null;
         _img: Image = null;
@@ -85,4 +87,4 @@ namespace circle {
             this._img.fillCircle(this._radius, this._radius, this._radius, 0)
         }
     }
-}
+
