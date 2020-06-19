@@ -2,7 +2,7 @@
 //% groups='["Create", "Properties, "Actions"]'
 namespace circle {
     //% group="Create"
-    //% block="create circle of radius %radius and color $color || filled=false"
+    //% block="create circle of radius %radius and color $color || filled is $filled"
     //% blockSetVariable=myCircle
     //% radius.min=5 radius.max=60 radius.defl=30
     //% color.min=0 color.max=15 color.defl=2
