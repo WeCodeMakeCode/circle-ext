@@ -11,7 +11,7 @@ namespace circle {
         return new Circle(radius, color, filled)
     }
 }
-//% blockNamespace=circle
+//% blockNamespace=circle 
     class Circle {
         _sprite: Sprite = null;
         _img: Image = null;
@@ -73,7 +73,7 @@ namespace circle {
         get fillColor() {
             return this._fillColor;
         }
-        //% group="Actions" weight=97
+        //% group="Actions" weight=90
         //% block="fill $myCircle with color $color"
         //% color.shadow="colorNumberPicker"
         fill(color: number) {
@@ -81,7 +81,7 @@ namespace circle {
             this._fillColor = color;
             this.doImage();
         }
-        //% group="Actions" weight=97
+        //% group="Actions" weight=90
         //% block="erase fill from $myCircle"
         unfill() {
             this._filled = false;
