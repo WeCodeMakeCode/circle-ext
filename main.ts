@@ -11,7 +11,7 @@ namespace circle {
         return new Circle(radius, color, filled)
     }
 }
-//% blockNamespace=circle3
+//% blockNamespace=circle
     class Circle {
         _sprite: Sprite = null;
         _img: Image = null;
