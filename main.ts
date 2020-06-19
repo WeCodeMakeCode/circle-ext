@@ -26,8 +26,8 @@ namespace circle {
             this._color = color;
             this._fillColor = 0;
             this._filled = filled;
-            imageWH = 2 * (this._radius + 1);
-             = imageWH / 2;
+            this.imageWH = 2 * (this._radius + 1);
+            this.centerXY = this.imageWH / 2;
             this.docenterXYImage();
             this._sprite = sprites.create(this._img);
         }
