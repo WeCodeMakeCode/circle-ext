@@ -6,7 +6,7 @@ namespace circle {
     //% radius.min=5 radius.max=60 radius.defl=30
     //% color.min=0 color.max=15 color.defl=2
     //% filled.defl=true
-    export function createCircleSprite(radius: number, color: number, filled:boolean = false): Sprite {
+    export function createCircleSprite(radius: number, color: number, filled:boolean = false): Circle {
         return new Circle(radius, color, filled)
     }
     class Circle {
@@ -26,9 +26,9 @@ namespace circle {
         }
         private doImage() {
             this._img = image.create(2 * this._radius + 1, 2 * this._radius + 1);
-            this._img.drawCircle(this._radiu, this._radiu, this._radiu, this._color);
+            this._img.drawCircle(this._radius, this._radius, this._radius, this._color);
             if (this._filled) {
-                this._img.fillCircle(radius, radius, radius, color)
+                this._img.fillCircle(this._radius, this._radius, this._radius, this._color)
             }
         }
         //% group="Properties"
@@ -86,3 +86,4 @@ namespace circle {
             this._img.fillCircle(this._radius, this._radius, this._radius, 0)
         }
     }
+}
