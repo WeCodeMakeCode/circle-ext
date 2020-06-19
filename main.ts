@@ -26,6 +26,9 @@ namespace circle {
             this._color = color;
             this._fillColor = 0;
             this._filled = filled;
+            if(this._filled){
+                this._fillColor =  this._color;
+            }
             this.doImageAndSprite();
         }
         private doImageAndSprite() {
