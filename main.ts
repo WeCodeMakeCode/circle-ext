@@ -1,11 +1,12 @@
 //% weight=100 color=#008080
 //% groups='["Create", "Properties, "Actions"]'
 namespace circle {
-    //% block="create circle sprite of radius %radius and color $color || filled=false"
+    //% group="Create"
+    //% block="create circle of radius %radius and color $color || filled=false"
     //% blockSetVariable=myCircle
     //% radius.min=5 radius.max=60 radius.defl=30
     //% color.min=0 color.max=15 color.defl=2
-    //% filled.defl=true
+    //% filled.defl=false
     export function createCircleSprite(radius: number, color: number, filled:boolean = false): Circle {
         return new Circle(radius, color, filled)
     }
@@ -32,12 +33,10 @@ namespace circle {
             }
         }
         //% group="Properties"
-        //% blockCombine block="sprite""
         get circle(): Sprite {
             return this._sprite;
         }
         //% group="Properties"
-        //% blockCombine block="image""
         get imaage(): Image {
             return this._img;
         }
@@ -65,7 +64,7 @@ namespace circle {
         set radius(value: number) {
             this._radius = value;
         }
-        //% group="Actions"
+        //% group="Properties"
         //% blockSetVariable="myCircle"
         //% blockCombine block="Fill Color"
         get fillColor() {
