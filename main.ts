@@ -28,10 +28,10 @@ namespace circle {
             this._sprite = sprites.create(this._img);
         }
         private doImage() {
-            this._img = image.create(2 * this._radius + 1, 2 * this._radius + 1);
-            this._img.drawCircle(this._radius, this._radius, this._radius, this._color);
+            this._img = image.create(2 * this._radius + 2, 2 * this._radius + 1);
+            this._img.drawCircle(this._radius+1, this._radius+1, this._radius, this._color);
             if (this._filled) {
-                this._img.fillCircle(this._radius, this._radius, this._radius, this._color)
+                this._img.fillCircle(this._radius + 1, this._radius + 1, this._radius, this._fillColor)
             }
         }
         //% group="Properties" weight=98
@@ -78,14 +78,14 @@ namespace circle {
         fill(color: number) {
             this._filled = true;
             this._fillColor = color;
-            this._img.fillCircle(this._radius, this._radius, this._radius, this._fillColor)
+            this._img.fillCircle(this._radius + 1, this._radius + 1, this._radius, this._fillColor)
         }
         //% group="Actions" weight=97
         //% block="erase fill from %Circle(myCircle)"
         unfill() {
             this._filled = false;
             this._fillColor = 0;
-            this._img.fillCircle(this._radius, this._radius, this._radius, 0)
+            this._img.fillCircle(this._radius + 1, this._radius + 1, this._radius, 0)
         }
     }
 
