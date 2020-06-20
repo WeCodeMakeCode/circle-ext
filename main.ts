@@ -38,48 +38,47 @@ namespace circle {
             }
             this._sprite = sprites.create(this._img);
         }
-        //% group="Properties" weight=98
+        //% group="Properties" 
         get circle(): Sprite {
             return this._sprite;
         }
-        //% group="Properties" weight=98
+        //% group="Properties" 
         get imaage(): Image {
             return this._img;
         }
-        //% group="Properties" weight=98
+        //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="color""
         get color(): number {
             return this._color;
         }
-        //% group="Properties" weight=98
+        //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="color""
         set color(value: number) {
             this._color = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Properties" weight=98
+        //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius""
         get radius(): number {
             return this._radius;
         }
-        //% group="Properties" weight=98
-        //% weight=98
+        //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="Fill Color"
         get fillColor() {
             return this._fillColor;
         }
-        //% group="Actions" weight=97
+        //% group="Actions" 
         //% block="fill %Circle(myCircle) with color $color"
         fill(color: number) {
             this._filled = true;
             this._fillColor = color;
             this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
         }
-        //% group="Actions" weight=97
+        //% group="Actions" 
         //% block="erase fill from %Circle(myCircle)"
         unfill() {
             this._filled = false;
@@ -87,7 +86,7 @@ namespace circle {
             this._img.fill(0);  //clear anything in image
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Actions" weight=97
+        //% group="Actions" 
         //% block="destroy %Circle(myCircle)"
         destroy() {
             if(this._sprite != null){
