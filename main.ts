@@ -11,7 +11,6 @@ namespace circle {
         return new Circle(radius, color, filled)
     }
 }
-
 //% blockNamespace=circle 
     class Circle {
         _sprite: Sprite = null;
@@ -41,38 +40,38 @@ namespace circle {
         }
         //% group="Properties" weight=95
         //% blockSetVariable="myCircle"
-        //% blockCombine block="sprite""
+        //% blockCombine block="sprite"
         get circle(): Sprite {
             return this._sprite;
         }
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
-        //% blockCombine block="image""
+        //% blockCombine block="image"
         get imaage(): Image {
             return this._img;
         }
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
-        //% blockCombine block="color""
+        //% blockCombine block="color"
         get color(): number {
             return this._color;
         }
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
-        //% blockCombine block="color""
+        //% blockCombine block="color"
         set color(value: number) {
             this._color = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
-        //% blockCombine block="radius""
+        //% blockCombine block="radius"
         get radius(): number {
             return this._radius;
         }
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
-        //% blockCombine block="Fill Color"
+        //% blockCombine block="Fill Color
         get fillColor() {
             return this._fillColor;
         }
