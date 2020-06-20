@@ -39,10 +39,14 @@ namespace circle {
             this._sprite = sprites.create(this._img);
         }
         //% group="Properties" weight=95
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="sprite""
         get circle(): Sprite {
             return this._sprite;
         }
         //% group="Properties"  weight=95
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="image""
         get imaage(): Image {
             return this._img;
         }
