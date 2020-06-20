@@ -42,30 +42,30 @@ namespace circle {
         get circle(): Sprite {
             return this._sprite;
         }
-        //% group="Properties" 
+        //% group="Properties"  weight=95
         get imaage(): Image {
             return this._img;
         }
-        //% group="Properties" 
+        //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
         //% blockCombine block="color""
         get color(): number {
             return this._color;
         }
-        //% group="Properties" 
+        //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
         //% blockCombine block="color""
         set color(value: number) {
             this._color = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Properties" 
+        //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius""
         get radius(): number {
             return this._radius;
         }
-        //% group="Properties" 
+        //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
         //% blockCombine block="Fill Color"
         get fillColor() {
