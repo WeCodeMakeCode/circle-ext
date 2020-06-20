@@ -1,28 +1,3 @@
-enum Color {
-    //% block="Random"
-    Random = 0,
-    //% block="counterclockwise"
-    Cycle = 1,
-    //% block="Red"
-    Red = 2,
-    //% block="Pink"
-    Pink = 3,
-}
-//% weight=100 color=#008080
-namespace koler{
-    class Kolor {
-        //% block
-        min: number = 0;
-        //% block
-        max: number = 15;
-        //% block
-        current: number = 0;
-        constructor() {
-
-        }
-    }
-}
-
 //% weight=100 color=#008080
 //% groups='["Create", "Properties, "Actions"]'
 namespace circle {
