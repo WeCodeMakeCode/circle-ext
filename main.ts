@@ -29,15 +29,6 @@ namespace circle {
             if(this._filled){
                 this._fillColor =  this._color;
             }
-            this.doImageAndSprite();
-        }
-        private doImageAndSprite() {
-            if (this._img != null ){
-                this._img = null;
-            }
-            if (this._sprite!== null){
-                this._sprite.destroy();
-            }
             this.imageWH = 2 * (this._radius + 2);
             this.centerXY = this.imageWH / 2;
             this._img = image.create(this.imageWH, this.imageWH);
@@ -47,7 +38,6 @@ namespace circle {
             }
             this._sprite = sprites.create(this._img);
         }
-
         //% group="Properties" weight=98
         get circle(): Sprite {
             return this._sprite;
@@ -76,14 +66,6 @@ namespace circle {
             return this._radius;
         }
         //% group="Properties" weight=98
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="radius"
-        set radius(value: number) {
-            // DO MIN AND MAX
-            this._radius = value;
-            this.doImageAndSprite();
-        }
-        //% group="Properties" weight=98
         //% weight=98
         //% blockSetVariable="myCircle"
         //% blockCombine block="Fill Color"
@@ -102,7 +84,8 @@ namespace circle {
         unfill() {
             this._filled = false;
             this._fillColor = 0;
-            this._img.fillCircle(this.centerXY, this.centerXY, this._radius, 0)
+            this._img.fill(0);  //clear anything in image
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
     }
 
