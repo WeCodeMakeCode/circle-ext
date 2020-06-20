@@ -1,7 +1,7 @@
 //% weight=100 color=#008080
 //% groups='["Create", "Properties, "Actions"]'
 namespace circle {
-    //% group="Create" weight=99
+    //% group="Create" weight=100
     //% block="create circle of radius %radius and color $color || filled is $filled"
     //% blockSetVariable=myCircle
     //% radius.min=5 radius.max=60 radius.defl=30
@@ -11,7 +11,7 @@ namespace circle {
         return new Circle(radius, color, filled)
     }
 }
-//% blockNamespace=circle weight=99
+//% blockNamespace=circle 
     class Circle {
         _sprite: Sprite = null;
         _img: Image = null;
@@ -38,7 +38,7 @@ namespace circle {
             }
             this._sprite = sprites.create(this._img);
         }
-        //% group="Properties" 
+        //% group="Properties" weight=95
         get circle(): Sprite {
             return this._sprite;
         }
@@ -71,14 +71,14 @@ namespace circle {
         get fillColor() {
             return this._fillColor;
         }
-        //% group="Actions" weight=98
+        //% group="Actions" weight=90
         //% block="fill %Circle(myCircle) with color $color"
         fill(color: number) {
             this._filled = true;
             this._fillColor = color;
             this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
         }
-        //% group="Actions" weight=98
+        //% group="Actions" weight=90
         //% block="erase fill from %Circle(myCircle)"
         unfill() {
             this._filled = false;
@@ -86,7 +86,7 @@ namespace circle {
             this._img.fill(0);  //clear anything in image
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Actions" weight=98
+        //% group="Actions" weight=90
         //% block="destroy %Circle(myCircle)"
         destroy() {
             if(this._sprite != null){
