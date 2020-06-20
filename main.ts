@@ -8,6 +8,7 @@ enum Color {
     //% block="Pink"
     Pink = 3,
 }
+//% weight=100 color=#008080
 namespace koler{
     class Kolor {
         //% block
