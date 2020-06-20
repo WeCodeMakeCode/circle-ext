@@ -87,5 +87,12 @@ namespace circle {
             this._img.fill(0);  //clear anything in image
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
+        //% group="Actions" weight=97
+        //% block="destroy %Circle(myCircle)"
+        destroy() {
+            if(this._sprite != null){
+                this._sprite.destroy();
+            }
+        }
     }
 
