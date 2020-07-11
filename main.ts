@@ -53,6 +53,13 @@ namespace circle {
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
         //% blockCombine block="color"
+        set image(value: Image ) {
+            this._img = value;
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
+        }
+        //% group="Properties"  weight=95
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="color"
         get color(): number {
             return this._color;
         }
