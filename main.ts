@@ -46,7 +46,7 @@ namespace circle {
         }
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
-        //% blockCombine block="image"
+        //% blockCombine block="image(myImage)"
         get imaage(): Image {
             return this._img;
         }
