@@ -1,6 +1,7 @@
 
-//% groups={"Create", "Properties", "Actions", "Circle List"}
+
 namespace circle {
+    //% groups={"Create", "Properties", "Actions", "Circle List"}
     //% group="Create" weight=100
     //% block="create circle of radius %radius and color $color || filled is $filled"
     //% blockSetVariable=myCircle
@@ -11,7 +12,7 @@ namespace circle {
         return new Circle(radius, color, filled)
     }
     //% group="Circle List" weight=80
-    //% blockSetVariable=CircleList(myCircleList)
+    //% blockSetVariable=myCircleList
     //% block="create circle list"
     export function emptyCircleList(){
         return new CircleList()
