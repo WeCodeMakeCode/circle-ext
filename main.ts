@@ -1,5 +1,5 @@
 //% weight=100 color=#008080
-//% groups='["Create", "Properties, "Actions"]'
+//% groups='["Create", "Properties, "Actions", "Circle List"]'
 namespace circle {
     //% group="Create" weight=100
     //% block="create circle of radius %radius and color $color || filled is $filled"
@@ -9,6 +9,36 @@ namespace circle {
     //% filled.defl=false
     export function createCircleSprite(radius: number, color: number, filled:boolean = false): Circle {
         return new Circle(radius, color, filled)
+    }
+    //% group="Circle List" weight=80
+    //% blockSetVariable=myCircleList
+    export function emptyCircleList(){
+        return new CircleList()
+    }
+}
+//% blockNamespace=circle 
+class CircleList{
+    _circles: Circle[] = []
+    constructor(){
+
+    }
+    //% group="Circle List" weight=80
+    //% block="add %cirlce(myCircle) to end)"
+    addCircleToEnd (value:Circle ){
+        this._circles[this._circles.length] = value
+    }
+    //% group="Circle List" weight=80
+    //% block="get and remove %cirlce(myCircle) from end"
+    getAndRemoveCircleFromEnd():Circle {
+        let tmp: Circle = this._circles[this._circles.length - 1]
+        this._circles.removeAt(this._circles.length - 1)
+        return tmp
+    }
+    //% group="Circle List" weight=80
+    //% block="remove and destroy %cirlce(myCircle) from end"
+    removeAndDestroyCircle(){
+        let tmp = this.getAndRemoveCircleFromEnd()
+        tmp.destroy()
     }
 }
 //% blockNamespace=circle 
@@ -45,13 +75,14 @@ namespace circle {
             return this._sprite;
         }
         //% group="Properties"  weight=95
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="image(myImage)"
+        //% blockSetVariable="myImage"
+        //% blockCombine block="image"
         get imaage(): Image {
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
             return this._img;
         }
         //% group="Properties"  weight=95
-        //% blockSetVariable="myCircle"
+        //% blockSetVariable="myImage"
         //% blockCombine block="image"
         set image(value: Image ) {
             this._img = value;
@@ -100,8 +131,9 @@ namespace circle {
         //% block="destroy %Circle(myCircle)"
         destroy() {
             if(this._sprite != null){
-                this._sprite.destroy();
+                this._sprite.destroy()
             }
+            this.destroy()
         }
     }
 
