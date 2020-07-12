@@ -36,12 +36,20 @@ class CircleList{
         this._circles.removeAt(this._circles.length - 1)
         return tmp
     }
+     //% group="Circle List" weight=80
+    //% block="%myCircleList remove and destroy first circle"
+    removeAndDestroyFirst(){
+        let tmp: Circle = this._circles[0]
+        this._circles.removeAt(0)
+        tmp.destroy()
+    }   
     //% group="Circle List" weight=80
     //% block="%myCircleList remove and destroy last circle"
-    removeAndDestroyCircle(){
+    removeAndDestroyLast(){
         let tmp2 = this.getAndRemoveLast()
         tmp2.destroy()
     }
+
     //% group="Circle List" weight=80
     //% block="%myCircleList length"
     length(): Number {
