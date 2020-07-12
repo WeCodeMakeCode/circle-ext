@@ -1,7 +1,7 @@
 
-
+//% weight=100 color=#008080 icon="\uf0c7"
+//% groups=["Create", "Properties", "Actions", "Circle List"]
 namespace circle {
-    //% groups={"Create", "Properties", "Actions", "Circle List"}
     //% group="Create" weight=100
     //% block="create circle of radius %radius and color $color || filled is $filled"
     //% blockSetVariable=myCircle
@@ -18,11 +18,12 @@ namespace circle {
         return new CircleList()
     }
     //% group="Actions" weight=90
-    //% block="destroy %c(myCircle)"
-    export function destroy(c:Circle) {
-        c.destroy()
+    //% block="destroy %circle(myCircle)"
+    export function destroy(circle:Circle) {
+        circle.destroy()
     }
 }
+//% blockNamespace=circle
 class CircleList{
     _circles: Circle[] = []
     constructor(){
@@ -61,6 +62,7 @@ class CircleList{
         return this._circles.length
     }
 }
+//% blockNamespace=circle
 class Circle {
         _sprite: Sprite = null;
         _img: Image = null;
