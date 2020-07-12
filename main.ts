@@ -42,6 +42,9 @@ class CircleList{
         let tmp2 = this.getAndRemoveLast()
         tmp2.destroy()
     }
+    //% group="Circle List" weight=80
+    //% blockSetVariable="length"
+    //% block="%myCircleList"
     length(): Number {
         return this._circles.length
     }
