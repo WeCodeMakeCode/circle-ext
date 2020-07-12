@@ -1,5 +1,5 @@
-//% weight=100 color=#008080
-//% groups='["Create", "Properties, "Actions", "Circle List"]'
+
+//% groups={"Create", "Properties", "Actions", "Circle List"}
 namespace circle {
     //% group="Create" weight=100
     //% block="create circle of radius %radius and color $color || filled is $filled"
@@ -11,17 +11,16 @@ namespace circle {
         return new Circle(radius, color, filled)
     }
     //% group="Circle List" weight=80
-    //% blockSetVariable=myCircleList
-    //% blockSetVariable=myCircleList
+    //% blockSetVariable=CircleList(myCircleList)
+    //% block="create circle list"
     export function emptyCircleList(){
         return new CircleList()
     }
 }
-//% blockNamespace=circle 
 class CircleList{
     _circles: Circle[] = []
     constructor(){
-
+        
     }
     //% group="Circle List" weight=80
     //% block="add %cirlce(myCircle) to end)"
@@ -38,12 +37,11 @@ class CircleList{
     //% group="Circle List" weight=80
     //% block="remove and destroy %cirlce(myCircle) from end"
     removeAndDestroyCircle(){
-        let tmp = this.getAndRemoveCircleFromEnd()
-        tmp.destroy()
+        let tmp2 = this.getAndRemoveCircleFromEnd()
+        tmp2.destroy()
     }
 }
-//% blockNamespace=circle 
-    class Circle {
+class Circle {
         _sprite: Sprite = null;
         _img: Image = null;
         _radius: number = 0;
@@ -137,4 +135,3 @@ class CircleList{
             this.destroy()
         }
     }
-
