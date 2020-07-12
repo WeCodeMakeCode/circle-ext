@@ -24,21 +24,22 @@ class CircleList{
         
     }
     //% group="Circle List" weight=80
-    //% block="add %cirlce(myCircle) to end)"
+    //% block="%myCircleList add %Circle(myCircle) to end"
     addCircleToEnd (value:Circle ){
         this._circles[this._circles.length] = value
     }
     //% group="Circle List" weight=80
-    //% block="get and remove %cirlce(myCircle) from end"
-    getAndRemoveCircleFromEnd():Circle {
+    //% blockSetVariable="myCircle"
+    //% block="%myCircleList get and remove last circle"
+    getAndRemoveLast():Circle {
         let tmp: Circle = this._circles[this._circles.length - 1]
         this._circles.removeAt(this._circles.length - 1)
         return tmp
     }
     //% group="Circle List" weight=80
-    //% block="remove and destroy %cirlce(myCircle) from end"
+    //% block="%myCircleList remove and destroy last circle"
     removeAndDestroyCircle(){
-        let tmp2 = this.getAndRemoveCircleFromEnd()
+        let tmp2 = this.getAndRemoveLast()
         tmp2.destroy()
     }
 }
