@@ -27,7 +27,6 @@ namespace circle {
 class CircleList{
     _circles: Circle[] = []
     constructor(){
-        
     }
     //% group="Actions" weight=85
     //% block="%myCircleList add %value=variables_get(myCircle) to end"
@@ -43,31 +42,43 @@ class CircleList{
     //% blockSetVariable="myCircle"
     //% block="%myCircleList get and remove last circle"
     getAndRemoveLast():Circle {
-        let tmp: Circle = this._circles[this._circles.length - 1]
-        this._circles.removeAt(this._circles.length - 1)
-        return tmp
+        if(this.length() > 0)
+        {
+            let tmp: Circle = this._circles[this._circles.length - 1]
+            this._circles.removeAt(this._circles.length - 1)
+            return tmp
+        }
+        return null
     }
     //% group="Actions" weight=80
     //% block="%myCircleList remove and destroy last circle"
     removeAndDestroyLast(){
-        let tmp = this.getAndRemoveLast()
-        tmp.destroy()
+        if(this.length() > 0)
+        {
+            let tmp = this.getAndRemoveLast()
+            tmp.destroy()
+        }
     }
     //% group="Actions" weight=80
     //% blockSetVariable="myCircle"
     //% block="%myCircleList get and remove first circle"
     getAndRemoveFirst():Circle {
-        let tmp: Circle = this._circles[0]
-        this._circles.removeAt(0)
-        return tmp
+        if(this.length() > 0){
+            let tmp: Circle = this._circles[0]
+            this._circles.removeAt(0)
+            return tmp
+        }
+        return null;
     }
     //% group="Actions" weight=80
     //% block="%myCircleList remove and destroy first circle"
     removeAndDestroyFirst(){
-        let tmp = this.getAndRemoveFirst()
-        tmp.destroy()
+        if(this.length() > 0){
+            let tmp = this.getAndRemoveFirst()
+            tmp.destroy()
+        }
     }   
-    
+
     //% group="Properties" weight=80
     //% block="%myCircleList length"
     length(): number {
