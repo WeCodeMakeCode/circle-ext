@@ -24,7 +24,7 @@ class CircleList{
         
     }
     //% group="Circle List" weight=80
-    //% block="%myCircleList add %Circle(myCircle) to end"
+    //% block="%myCircleList add %value(myCircle) to end"
     addCircleToEnd (value:Circle ){
         this._circles[this._circles.length] = value
     }
@@ -41,6 +41,9 @@ class CircleList{
     removeAndDestroyCircle(){
         let tmp2 = this.getAndRemoveLast()
         tmp2.destroy()
+    }
+    length(): Number {
+        return this._circles.length
     }
 }
 class Circle {
