@@ -50,7 +50,7 @@ class CircleList{
     }
     //% group="Actions" weight=80
     //% blockSetVariable="myCircle"
-    //% block="%myCircleList get and remove let myCircle = myMyCircleList.getAndRemoveFirst() circle"
+    //% block="%myCircleList get and remove first circle"
     getAndRemoveFirst():Circle {
         let tmp: Circle = this._circles[0]
         this._circles.removeAt(0)
