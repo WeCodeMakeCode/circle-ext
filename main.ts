@@ -29,10 +29,15 @@ class CircleList{
     constructor(){
         
     }
-    //% group="Actions" weight=80
+    //% group="Actions" weight=85
     //% block="%myCircleList add %value=variables_get(myCircle) to end"
     addCircleToEnd (value:Circle ){
-        this._circles[this._circles.length] = value
+        this._circles.push(value)
+    }
+     //% group="Actions" weight=85
+    //% block="%myCircleList add %value=variables_get(myCircle) to beginning"
+    addCircleToBeginning (value:Circle ){
+        this._circles.unshift(value) 
     }
     //% group="Actions" weight=80
     //% blockSetVariable="myCircle"
