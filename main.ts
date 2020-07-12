@@ -29,7 +29,7 @@ class CircleList{
         
     }
     //% group="Circle List" weight=80
-    //% block="%myCircleList add %value(myCircle) to end"
+    //% block="%myCircleList add update %value=variables_get(myCircle) to end"
     addCircleToEnd (value:Circle ){
         this._circles[this._circles.length] = value
     }
