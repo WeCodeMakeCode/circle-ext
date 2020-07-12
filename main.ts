@@ -57,7 +57,7 @@ class CircleList{
 
     //% group="Circle List" weight=80
     //% block="%myCircleList length"
-    length(): Number {
+    length(): number {
         return this._circles.length
     }
 }
