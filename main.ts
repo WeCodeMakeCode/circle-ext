@@ -1,7 +1,7 @@
 
 //% weight=100 color=#008080 icon="\uf0c7"
 //% groups=["Create", "Properties", "Actions"]
-namespace wcmcCircle {
+namespace circle {
     //% group="Create" weight=100
     //% block="create circle of radius %radius and color $color || fill=$filled"
     //% blockSetVariable=myCircle
@@ -23,7 +23,7 @@ namespace wcmcCircle {
         return new CircleList()
     }
 }
-//% blockNamespace=wcmcCircle
+//% blockNamespace=circle
 class CircleList{
     _circles: Circle[] = []
     constructor(){
@@ -74,7 +74,7 @@ class CircleList{
         return this._circles.length
     }
 }
-//% blockNamespace=wcmcCircle
+//% blockNamespace=circle
 class Circle {
         _sprite: Sprite = null;
         _img: Image = null;
