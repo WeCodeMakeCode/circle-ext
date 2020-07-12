@@ -1,5 +1,5 @@
 
-//% weight=100 color=#008080 icon="\uf0c7"
+//% weight=100 color=#008080 
 //% groups=["Create", "Properties", "Actions"]
 namespace circle {
     //% group="Create" weight=100
