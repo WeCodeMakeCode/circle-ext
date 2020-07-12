@@ -17,6 +17,11 @@ namespace circle {
     export function emptyCircleList(){
         return new CircleList()
     }
+    //% group="Actions" weight=90
+    //% block="destroy %Circle(myCircle)"
+    export function destroy(c:Circle) {
+        c.destroy()
+    }
 }
 class CircleList{
     _circles: Circle[] = []
@@ -46,13 +51,13 @@ class CircleList{
     //% group="Circle List" weight=80
     //% block="%myCircleList remove and destroy last circle"
     removeAndDestroyLast(){
-        let tmp2 = this.getAndRemoveLast()
-        tmp2.destroy()
+        let tmp = this.getAndRemoveLast()
+        tmp.destroy()
     }
 
     //% group="Circle List" weight=80
     //% block="%myCircleList length"
-    length(): NumberFormat {
+    length(): Number {
         return this._circles.length
     }
 }
@@ -141,12 +146,10 @@ class Circle {
             this._img.fill(0);  //clear anything in image
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Actions" weight=90
-        //% block="destroy %Circle(myCircle)"
-        destroy() {
+        destroy(){
             if(this._sprite != null){
                 this._sprite.destroy()
             }
-            this.destroy()
         }
+
     }
