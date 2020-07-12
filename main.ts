@@ -12,6 +12,7 @@ namespace circle {
     }
     //% group="Circle List" weight=80
     //% blockSetVariable=myCircleList
+    //% blockSetVariable=myCircleList
     export function emptyCircleList(){
         return new CircleList()
     }
