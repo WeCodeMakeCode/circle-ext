@@ -1,9 +1,9 @@
 
 //% weight=100 color=#008080 icon="\uf0c7"
-//% groups=["Create", "Properties", "Actions", "Circle List"]
+//% groups=["Create", "Properties", "Actions"]
 namespace circle {
     //% group="Create" weight=100
-    //% block="create circle of radius %radius and color $color || filled is $filled"
+    //% block="create circle of radius %radius and color $color || fill=$filled"
     //% blockSetVariable=myCircle
     //% radius.min=5 radius.max=60 radius.defl=30
     //% color.min=0 color.max=15 color.defl=2
@@ -16,7 +16,7 @@ namespace circle {
     export function destroy(circle:Circle) {
         circle.destroy()
     }
-    //% group="Circle List" weight=80
+    //% group="Create" weight=80
     //% blockSetVariable=myCircleList
     //% block="empty circle list"
     export function emptyCircleList(){
@@ -29,12 +29,12 @@ class CircleList{
     constructor(){
         
     }
-    //% group="Circle List" weight=80
+    //% group="Actions" weight=80
     //% block="%myCircleList add %value=variables_get(myCircle) to end"
     addCircleToEnd (value:Circle ){
         this._circles[this._circles.length] = value
     }
-    //% group="Circle List" weight=80
+    //% group="Actions" weight=80
     //% blockSetVariable="myCircle"
     //% block="%myCircleList get and remove last circle"
     getAndRemoveLast():Circle {
@@ -42,28 +42,28 @@ class CircleList{
         this._circles.removeAt(this._circles.length - 1)
         return tmp
     }
-    //% group="Circle List" weight=80
+    //% group="Actions" weight=80
     //% block="%myCircleList remove and destroy last circle"
     removeAndDestroyLast(){
         let tmp = this.getAndRemoveLast()
         tmp.destroy()
     }
-    //% group="Circle List" weight=80
+    //% group="Actions" weight=80
     //% blockSetVariable="myCircle"
-    //% block="%myCircleList get and remove last circle"
+    //% block="%myCircleList get and remove let myCircle = myMyCircleList.getAndRemoveFirst() circle"
     getAndRemoveFirst():Circle {
         let tmp: Circle = this._circles[0]
         this._circles.removeAt(0)
         return tmp
     }
-    //% group="Circle List" weight=80
+    //% group="Actionst" weight=80
     //% block="%myCircleList remove and destroy first circle"
     removeAndDestroyFirst(){
         let tmp = this.getAndRemoveFirst()
         tmp.destroy()
     }   
     
-    //% group="Circle List" weight=80
+    //% group="Properties" weight=80
     //% block="%myCircleList length"
     length(): number {
         return this._circles.length
@@ -101,19 +101,6 @@ class Circle {
         //% blockCombine block="sprite"
         get circle(): Sprite {
             return this._sprite;
-        }
-        //% group="Properties"  weight=95
-        //% blockSetVariable="myImage"
-        //% blockCombine block="image"
-        get imaage(): Image {
-            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
-            return this._img;
-        }
-        //% group="Properties"  weight=95
-        //% blockSetVariable="myImage"
-        //% blockCombine block="image"
-        set image(value: Image ) {
-            this._img = value;
         }
         //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
