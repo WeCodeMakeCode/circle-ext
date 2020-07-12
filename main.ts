@@ -43,8 +43,7 @@ class CircleList{
         tmp2.destroy()
     }
     //% group="Circle List" weight=80
-    //% blockSetVariable="length"
-    //% block="%myCircleList"
+    //% block="%myCircleList length"
     length(): Number {
         return this._circles.length
     }
