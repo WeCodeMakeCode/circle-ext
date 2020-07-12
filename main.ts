@@ -18,7 +18,7 @@ namespace circle {
         return new CircleList()
     }
     //% group="Actions" weight=90
-    //% block="destroy %Circle(myCircle)"
+    //% block="destroy %c(myCircle)"
     export function destroy(c:Circle) {
         c.destroy()
     }
