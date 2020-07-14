@@ -132,12 +132,14 @@ class Circle {
         _color: number = 0;
         _fillColor: number = 0;
         _filled: boolean = false;
+        _text:string = ""
         imageWH: number = 0;
         centerXY:number = 0;
         constructor(radius: number, color: number, filled: boolean = false) {
             this._radius = radius;
             this._color = color;
             this._fillColor = 0;
+            this._text = ""
             this._filled = filled;
             if(this._filled){
                 this._fillColor =  this._color;
@@ -169,6 +171,18 @@ class Circle {
         set color(value: number) {
             this._color = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
+        }
+        //% group="Circle"  weight=90
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="text"
+        get text(): string {
+            return this._text;
+        }
+        //% group="Circle"  weight=90
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="text"
+        set text(value: string) {
+            this._text = value;
         }
         //% group="Circle"  weight=90
         //% blockSetVariable="myCircle"
