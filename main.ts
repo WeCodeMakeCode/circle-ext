@@ -18,37 +18,54 @@ namespace circle {
     }
     //% group="Create" weight=99
     //% blockSetVariable=myCircleList
-    //% block="empty circle list"
-    export function emptyCircleList(){
-        return new CircleList()
+    //% block="empty circle array"
+    export function emptyCircleArray(){
+        return new CircleArray()
     }
 }
 //% blockNamespace=circle
-class CircleList{
+class CircleArray{
     _circles: Circle[] = []
     constructor(){
     }
-    //% group="Actions" weight=85
-    //% block="%myCircleList add %value=variables_get(myCircle) to end"
-    addCircleToEnd (value:Circle ){
-        this._circles.push(value)
-    }
-     //% group="Actions" weight=85
-    //% block="%myCircleList add %value=variables_get(myCircle) to beginning"
-    addCircleToBeginning (value:Circle ){
-        this._circles.unshift(value) 
+    //% group="Properties" weight=80
+    //% block="length of array %myCircleList"
+    length(): number {
+        return this._circles.length
     }
     //% group="Actions" weight=80
-    //% blockSetVariable="myCircle"
-    //% block="%myCircleList get and remove last circle"
-    getAndRemoveLast():Circle {
-        if(this.length() > 0)
+    //% block="%myCircleList get circle at %index"
+    getCircle(index:number):Circle {
+        if(index < this.length() )
         {
-            let tmp: Circle = this._circles[this._circles.length - 1]
-            this._circles.removeAt(this._circles.length - 1)
-            return tmp
+            return this._circles[index]
         }
         return null
+    }
+    //% group="Actions" weight=80
+    //% block="%myCircleList get and remove circle at %index"
+    getAndRemoveCircleAt(index:number):Circle {
+        if(this.length() > 0)
+        {
+            return this._circles.removeAt(index)
+        }
+        return null
+    }
+    //% group="Actions" weight=80
+    //% block="get and remove last circle from %myCircleList
+    getAndRemoveLast():Circle {
+        if(this.length() > 0){
+            return this._circles.removeAt(this.length()-1)
+        }
+        return null;
+    }
+    //% group="Actions" weight=80
+    //% block="get and remove first circle from %myCircleList
+    getAndRemoveFirst():Circle {
+        if(this.length() > 0){
+            return this._circles.removeAt(0)
+        }
+        return null;
     }
     //% group="Actions" weight=80
     //% block="%myCircleList remove and destroy last circle"
@@ -60,30 +77,52 @@ class CircleList{
         }
     }
     //% group="Actions" weight=80
-    //% blockSetVariable="myCircle"
-    //% block="%myCircleList get and remove first circle"
-    getAndRemoveFirst():Circle {
-        if(this.length() > 0){
-            let tmp: Circle = this._circles[0]
-            this._circles.removeAt(0)
-            return tmp
-        }
-        return null;
-    }
-    //% group="Actions" weight=80
     //% block="%myCircleList remove and destroy first circle"
     removeAndDestroyFirst(){
         if(this.length() > 0){
             let tmp = this.getAndRemoveFirst()
             tmp.destroy()
         }
-    }   
-
-    //% group="Properties" weight=80
-    //% block="%myCircleList length"
-    length(): number {
-        return this._circles.length
+    }  
+    //% group="Actions" weight=85
+    //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
+    setCircleAt (index:number , value:Circle){
+         if(index < this.length()){
+            this._circles[index] = value;
+         }
     }
+    //% group="Actions" weight=85
+    //% block="%myCircleList add %value=variables_get(myCircle) to end"
+    addCircleToEnd (value:Circle ){
+        this._circles.push(value)
+    }
+    //% group="Actions" weight=85
+    //% block="%myCircleList insert %value=variables_get(myCircle) at beginning"
+    insertCircleToBeginning (value:Circle ){
+        this._circles.unshift(value) 
+        this._circles.insertAt(0, null)
+    }
+
+    //% group="Actions" weight=85
+    //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
+    insertCircleAt (value:Circle , index:number){
+        this._circles.insertAt(index, value)
+    }
+    //% group="Actions" weight=85
+    //% block="%myCircleList find index of %value=variables_get(myCircle)"
+    findIndexOfCircle (value:Circle ):number{
+        for(let i = 0; i < this.length(); i++) {
+            if (value == this._circles[i]) return i
+        }
+        return -1
+    }
+     //% group="Actions" weight=85
+    //% block=" reverse %myCircleList"
+    reverse (){
+        this._circles.reverse()
+    }
+
+
 }
 //% blockNamespace=circle
 class Circle {
