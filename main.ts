@@ -52,7 +52,7 @@ class CircleArray{
         return null
     }
     //% group="Actions" weight=80
-    //% block="get and remove last circle from %myCircleList
+    //% block="get and remove last circle from %myCircleList"
     getAndRemoveLast():Circle {
         if(this.length() > 0){
             return this._circles.removeAt(this.length()-1)
@@ -60,7 +60,7 @@ class CircleArray{
         return null;
     }
     //% group="Actions" weight=80
-    //% block="get and remove first circle from %myCircleList
+    //% block="get and remove first circle from %myCircleList"
     getAndRemoveFirst():Circle {
         if(this.length() > 0){
             return this._circles.removeAt(0)
