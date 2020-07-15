@@ -47,12 +47,7 @@ class Circle {
             }
             this._sprite = sprites.create(this._img)
         }
-        //% group="Properties"
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="sprite"
-        get circle(): Sprite {
-            return this._sprite;
-        }
+
         //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="data number"
@@ -102,7 +97,12 @@ class Circle {
         set text(value: string) {
             this._dataText = value;
         }
-
+        //% group="Properties"
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="sprite"
+        get circle(): Sprite {
+            return this._sprite;
+        }
         //% group="Actions" 
         //% block="fill %Circle(myCircle) || with color $color"
         fill(color: number = -1 ){
@@ -190,16 +190,14 @@ class CircleList{
     /*
         middle
     */
-
-
     //% group="List Middle" 
-    //% block="%myCircleList get circle at %index"
-    getCircleAt(index:number):Circle {
-        if(index < this.length() )
+    //% block="%myCircleList remove and destroy circle at %index"
+    removeAndDestroyCircleAt(index:number){
+        if(this.length() > 0)
         {
-            return this._circles[index]
+            let tmp = this._circles.removeAt(index)
+            tmp.destroy()
         }
-        return null
     }
     //% group="List Middle" 
     //% block="%myCircleList get and remove circle at %index"
@@ -211,13 +209,13 @@ class CircleList{
         return null
     }
     //% group="List Middle" 
-    //% block="%myCircleList remove and destroy circle at %index"
-    removeAndDestroyCircleAt(index:number){
-        if(this.length() > 0)
+    //% block="%myCircleList get circle at %index"
+    getCircleAt(index:number):Circle {
+        if(index < this.length() )
         {
-            let tmp = this._circles.removeAt(index)
-            tmp.destroy()
+            return this._circles[index]
         }
+        return null
     }
     //% group="List Middle" 
     //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
