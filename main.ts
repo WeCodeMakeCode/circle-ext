@@ -1,8 +1,8 @@
 
 //% weight=100 color=#008080 
-//% groups=[ "Circle List", "Circle List Beginning", "Circle List Middle", "Circle List End"]
+//% groups=[ "Create", "Properties", "Data Propertion", "Actions"]
 namespace circle {
-    //% group="Circle" weight=100
+    //% group="Create" weight=100
     //% block="create circle of radius %radius and color $color || fill=$filled"
     //% blockSetVariable=myCircle
     //% radius.min=5 radius.max=60 radius.defl=30
@@ -12,7 +12,7 @@ namespace circle {
         return new Circle(radius, color, filled)
     }
 
-    //% group="Circle" weight=98
+    //% group="Create" weight=98
     //% block="destroy %circle=variables_get(myCircle)"
     export function destroy(circle:Circle) {
         circle.destroy()
@@ -47,32 +47,32 @@ class Circle {
             }
             this._sprite = sprites.create(this._img)
         }
-        //% group="Circle Properties" weight=97
+        //% group="Properties" weight=97
         //% blockSetVariable="myCircle"
         //% blockCombine block="sprite"
         get circle(): Sprite {
             return this._sprite;
         }
-        //% group="Circle Properties"  weight=96
+        //% group="Properties"  weight=96
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius"
         get radius(): number {
             return this._radius;
         }
-        //% group="Circle Properties"  weight=95
+        //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
         //% blockCombine block="color"
         get color(): number {
             return this._color;
         }
-        //% group="Circle Properties"  weight=95
+        //% group="Properties"  weight=95
         //% blockSetVariable="myCircle"
         //% blockCombine block="color"
         set color(value: number) {
             this._color = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Circle Properties" weight=94
+        //% group="Actions" weight=94
         //% block="fill %Circle(myCircle) || with color $color"
         fill(color: number = -1 ){
             this._filled = true
@@ -84,13 +84,13 @@ class Circle {
             }
             this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
         }
-        //% group="Circle Properties" weight=94
+        //% group="Properties" weight=94
         //% blockSetVariable="myCircle"
         //% blockCombine block="Fill Color
         get fillColor() {
             return this._fillColor;
         }
-        //% group="Circle Properties" weight=94
+        //% group="Actions" weight=94
         //% block="erase fill from %Circle(myCircle)"
         unfill() {
             this._filled = false;
@@ -98,13 +98,13 @@ class Circle {
             this._img.fill(0);  //clear anything in image
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Circle Data Properties"  weight=93
+        //% group="Data Properties"  weight=93
         //% blockSetVariable="myCircle"
         //% blockCombine block="text"
         get text(): string {
             return this._dataText;
         }
-        //% group="Circle Data Properties"  weight=93
+        //% group="Data Properties"  weight=93
         //% blockSetVariable="myCircle"
         //% blockCombine block="text"
         set text(value: string) {
@@ -116,7 +116,7 @@ class Circle {
         get dataNumber(): number {
             return this._dataNumber;
         }
-        //% group="Circle Data Properties"  weight=93
+        //% group="Data Properties"  weight=93
         //% blockSetVariable="myCircle"
         //% blockCombine block="data number"
         set dataNumber(value: number) {
@@ -129,9 +129,9 @@ class Circle {
         }
     }
 //% weight=100 color=#008080 
-//% groups=["Circle List", "Circle List Beginning", "Circle List Middle", "Circle List End"]
+//% groups=["List", "List Beginning", "List Middle", "List End"]
 namespace circleList {
-    //% group="Circle List" weight=90
+    //% group="Create" weight=90
     //% blockSetVariable=myCircleList
     //% block="empty circle list"
     export function emptyCircleList(){
@@ -143,17 +143,17 @@ class CircleList{
     _circles: Circle[] = []
     constructor(){
     }
-    //% group="Circle List" weight=89
+    //% group="List" weight=89
     //% block="length of array %myCircleList"
     length(): number {
         return this._circles.length
     }
-     //% group="Circle List" weight=88
+     //% group="List" weight=88
     //% block=" reverse %myCircleList"
     reverse (){
         this._circles.reverse()
     }
-    //% group="Circle List" weight=87
+    //% group="List" weight=87
     //% block="%myCircleList find index of %value=variables_get(myCircle)"
     findIndexOfCircle (value:Circle ):number{
         for(let i = 0; i < this.length(); i++) {
@@ -164,7 +164,7 @@ class CircleList{
     /*
         beginning
     */
-    //% group="Circle List Beginning" weight=86
+    //% group="List Beginning" weight=86
     //% block="get and remove first circle from %myCircleList"
     getAndRemoveFirst():Circle {
         if(this.length() > 0){
@@ -172,7 +172,7 @@ class CircleList{
         }
         return null;
     }
-    //% group="Circle List Beginning" weight=85
+    //% group="List Beginning" weight=85
     //% block="%myCircleList remove and destroy first circle"
     removeAndDestroyFirst(){
         if(this.length() > 0){
@@ -180,7 +180,7 @@ class CircleList{
             tmp.destroy()
         }
     }  
-    //% group="Circle List Beginning" weight=84
+    //% group="List Beginning" weight=84
     //% block="%myCircleList insert %value=variables_get(myCircle) at beginning"
     insertCircleToBeginning (value:Circle ){
         this._circles.unshift(value) 
@@ -189,7 +189,7 @@ class CircleList{
     /*
         middle
     */
-    //% group="Circle List Middle" weight=83
+    //% group="List Middle" weight=83
     //% block="%myCircleList get circle at %index"
     getCircleAt(index:number):Circle {
         if(index < this.length() )
@@ -198,7 +198,7 @@ class CircleList{
         }
         return null
     }
-    //% group="Circle List Middle" weight=82
+    //% group="List Middle" weight=82
     //% block="%myCircleList get and remove circle at %index"
     getAndRemoveCircleAt(index:number):Circle {
         if(this.length() > 0)
@@ -207,7 +207,7 @@ class CircleList{
         }
         return null
     }
-    //% group="Circle List Middle" weight=81
+    //% group="List Middle" weight=81
     //% block="%myCircleList remove and destroy circle at %index"
     removeAndDestroyCircleAt(index:number){
         if(this.length() > 0)
@@ -216,14 +216,14 @@ class CircleList{
             tmp.destroy()
         }
     }
-    //% group="Circle List Middle" weight=81
+    //% group="List Middle" weight=81
     //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
     setCircleAt (index:number , value:Circle){
          if(index < this.length()){
             this._circles[index] = value;
          }
     }
-    //% group="Circle List Middle" weight=81
+    //% group="List Middle" weight=81
     //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
     insertCircleAt (value:Circle , index:number){
         this._circles.insertAt(index, value)
@@ -231,7 +231,7 @@ class CircleList{
     /*
         end
     */
-    //% group="Circle List End" weight=80
+    //% group="List End" weight=80
     //% block="get and remove last circle from %myCircleList"
     getAndRemoveLast():Circle {
         if(this.length() > 0){
@@ -239,7 +239,7 @@ class CircleList{
         }
         return null;
     }
-    //% group="Circle List End" weight=79
+    //% group="List End" weight=79
     //% block="%myCircleList remove and destroy last circle"
     removeAndDestroyLast(){
         if(this.length() > 0)
@@ -248,7 +248,7 @@ class CircleList{
             tmp.destroy()
         }
     }
-    //% group="Circle List End" weight=78
+    //% group="List End" weight=78
     //% block="%myCircleList add %value=variables_get(myCircle) to end"
     addCircleToEnd (value:Circle ){
         this._circles.push(value)
