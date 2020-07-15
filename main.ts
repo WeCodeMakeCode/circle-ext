@@ -1,6 +1,6 @@
 
 //% weight=100 color=#008080 
-//% groups=[ "Circle",  "Circle Properties", "Circle List", "Circle List Beginning", "Circle List Middle", "Circle List End"]
+//% groups=[ "Circle",  "Circle Properties", "Circle Data Properties", "Circle List", "Circle List Beginning", "Circle List Middle", "Circle List End"]
 namespace circle {
     //% group="Circle" weight=100
     //% block="create circle of radius %radius and color $color || fill=$filled"
@@ -205,7 +205,7 @@ class CircleList{
         }
         return null
     }
-    //% group="Circle List End" weight=81
+    //% group="Circle List Middle" weight=81
     //% block="%myCircleList remove and destroy circle at %index"
     removeAndDestroyCircleAt(index:number){
         if(this.length() > 0)
