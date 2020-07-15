@@ -128,6 +128,7 @@ class Circle {
             }
         }
     }
+
 namespace circle {
     //% group="Circle List" weight=90
     //% blockSetVariable=myCircleList

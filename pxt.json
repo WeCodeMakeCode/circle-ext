@@ -1,5 +1,5 @@
 {
-    "name": "circle ext 2",
+    "name": "circle ext before split",
     "description": "",
     "dependencies": {
         "device": "*"
