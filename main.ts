@@ -190,18 +190,8 @@ class CircleList{
     /*
         middle
     */
-    //% group="List Middle" 
-    //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
-    insertCircleAt (value:Circle , index:number){
-        this._circles.insertAt(index, value)
-    }
-    //% group="List Middle" 
-    //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
-    setCircleAt (index:number , value:Circle){
-         if(index < this.length()){
-            this._circles[index] = value;
-         }
-    }
+
+
     //% group="List Middle" 
     //% block="%myCircleList get circle at %index"
     getCircleAt(index:number):Circle {
@@ -229,7 +219,18 @@ class CircleList{
             tmp.destroy()
         }
     }
-
+    //% group="List Middle" 
+    //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
+    setCircleAt (index:number , value:Circle){
+         if(index < this.length()){
+            this._circles[index] = value;
+         }
+    }
+    //% group="List Middle" 
+    //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
+    insertCircleAt (value:Circle , index:number){
+        this._circles.insertAt(index, value)
+    }
     /*
         end
     */
