@@ -165,13 +165,13 @@ class Circle {
         get circle(): Sprite {
             return this._sprite;
         }
-        //% group="Circle"  weight=95
+        //% group="Circle"  weight=97
         //% blockSetVariable="myCircle"
         //% blockCombine block="color"
         get color(): number {
             return this._color;
         }
-        //% group="Circle"  weight=95
+        //% group="Circle"  weight=97
         //% blockSetVariable="myCircle"
         //% blockCombine block="color"
         set color(value: number) {
@@ -190,7 +190,7 @@ class Circle {
         set text(value: string) {
             this._text = value;
         }
-        //% group="Circle"  weight=97
+        //% group="Circle"  weight=94
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius"
         get radius(): number {
