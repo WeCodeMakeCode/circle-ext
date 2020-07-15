@@ -11,27 +11,146 @@ namespace circle {
     export function createCircle(radius: number, color: number, filled:boolean = false): Circle {
         return new Circle(radius, color, filled)
     }
-    //% group="Circle" weight=99
+
+    //% group="Circle" weight=98
     //% block="destroy %circle=variables_get(myCircle)"
     export function destroy(circle:Circle) {
         circle.destroy()
     }
-    //% group="Circle List" weight=98
+}
+//% blockNamespace=circle
+class Circle {
+        _sprite: Sprite = null
+        _img: Image = null
+        _radius: number = 0
+        _color: number = 0
+        _fillColor: number = 0
+        _filled: boolean = false
+        _dataText:string = ""
+        _dataNumber:number = 0
+        imageWH: number = 0
+        centerXY:number = 0
+        constructor(radius: number, color: number, filled: boolean = false) {
+            this._radius = radius
+            this._color = color
+            this._fillColor = 0;
+            this._dataText = ""
+            this._dataNumber =0
+            this._filled = filled
+            this._fillColor =  this._color
+            this.imageWH = 2 * (this._radius + 2)
+            this.centerXY = this.imageWH / 2
+            this._img = image.create(this.imageWH, this.imageWH)
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color)
+            if (this._filled) {
+                this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
+            }
+            this._sprite = sprites.create(this._img)
+        }
+        //% group="Circle" weight=97
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="sprite"
+        get circle(): Sprite {
+            return this._sprite;
+        }
+        //% group="Circle"  weight=96
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="radius"
+        get radius(): number {
+            return this._radius;
+        }
+        //% group="Circle"  weight=95
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="color"
+        get color(): number {
+            return this._color;
+        }
+        //% group="Circle"  weight=95
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="color"
+        set color(value: number) {
+            this._color = value;
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
+        }
+        //% group="Circle" weight=94
+        //% block="fill %Circle(myCircle) || with color $color"
+        fill(color: number = -1 ){
+            this._filled = true
+            if (color == -1)
+            {
+               this._fillColor = this._color
+            } else {
+                this._fillColor = color
+            }
+            this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
+        }
+        //% group="Circle"  weight=94
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="Fill Color
+        get fillColor() {
+            return this._fillColor;
+        }
+        //% group="Circle" weight=94
+        //% block="erase fill from %Circle(myCircle)"
+        unfill() {
+            this._filled = false;
+            this._fillColor = 0;
+            this._img.fill(0);  //clear anything in image
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
+        }
+        //% group="Circle"  weight=93
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="text"
+        get text(): string {
+            return this._dataText;
+        }
+        //% group="Circle"  weight=93
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="text"
+        set text(value: string) {
+            this._dataText = value;
+        }
+        //% group="Circle"  weight=93
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="data number"
+        get dataNumber(): number {
+            return this._dataNumber;
+        }
+        //% group="Circle"  weight=93
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="data number"
+        set dataNumber(value: number) {
+            this._dataNumber = value;
+        }
+        destroy(){
+            if(this._sprite != null){
+                this._sprite.destroy()
+            }
+        }
+    }
+namespace circle {
+    //% group="Circle List" weight=90
     //% blockSetVariable=myCircleList
     //% block="empty circle list"
     export function emptyCircleList(){
         return new CircleList()
     }
 }
+
 //% blockNamespace=circle
 class CircleList{
     _circles: Circle[] = []
     constructor(){
     }
-    //% group="Circle List" weight=90
+    //% group="Circle List" weight=89
     //% block="length of array %myCircleList"
     length(): number {
         return this._circles.length
+    }
+     //% group="Circle List" weight=88
+    //% block=" reverse %myCircleList"
+    reverse (){
+        this._circles.reverse()
     }
     //% group="Circle List" weight=87
     //% block="%myCircleList find index of %value=variables_get(myCircle)"
@@ -41,15 +160,10 @@ class CircleList{
         }
         return -1
     }
-     //% group="Circle List" weight=88
-    //% block=" reverse %myCircleList"
-    reverse (){
-        this._circles.reverse()
-    }
     /*
         beginning
     */
-    //% group="Circle List Beginning" weight=83
+    //% group="Circle List Beginning" weight=86
     //% block="get and remove first circle from %myCircleList"
     getAndRemoveFirst():Circle {
         if(this.length() > 0){
@@ -57,11 +171,11 @@ class CircleList{
         }
         return null;
     }
-    //% group="Circle List Beginning" weight=82
+    //% group="Circle List Beginning" weight=85
     //% block="%myCircleList remove and destroy first circle"
     removeAndDestroyFirst(){
         if(this.length() > 0){
-            let tmp = this.getAndRemoveFirst()
+            let tmp = this._circles.removeAt(0)
             tmp.destroy()
         }
     }  
@@ -76,7 +190,7 @@ class CircleList{
     */
     //% group="Circle List Middle" weight=83
     //% block="%myCircleList get circle at %index"
-    getCircle(index:number):Circle {
+    getCircleAt(index:number):Circle {
         if(index < this.length() )
         {
             return this._circles[index]
@@ -92,7 +206,16 @@ class CircleList{
         }
         return null
     }
-    //% group="Circle List Middle" weight=85
+    //% group="Circle List End" weight=79
+    //% block="%myCircleList remove and destroy last circle"
+    removeAndDestroyCircleAt(index:number){
+        if(this.length() > 0)
+        {
+            let tmp = this._circles.removeAt(index)
+            tmp.destroy()
+        }
+    }
+    //% group="Circle List Middle" weight=81
     //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
     setCircleAt (index:number , value:Circle){
          if(index < this.length()){
@@ -107,7 +230,7 @@ class CircleList{
     /*
         end
     */
-    //% group="Circle List End" weight=78
+    //% group="Circle List End" weight=80
     //% block="get and remove last circle from %myCircleList"
     getAndRemoveLast():Circle {
         if(this.length() > 0){
@@ -115,112 +238,19 @@ class CircleList{
         }
         return null;
     }
-    //% group="Circle List End" weight=77
+    //% group="Circle List End" weight=79
     //% block="%myCircleList remove and destroy last circle"
     removeAndDestroyLast(){
         if(this.length() > 0)
         {
-            let tmp = this.getAndRemoveLast()
+            let tmp = this._circles.removeAt(this.length()-1)
             tmp.destroy()
         }
     }
-    //% group="Circle List End" weight=79
+    //% group="Circle List End" weight=78
     //% block="%myCircleList add %value=variables_get(myCircle) to end"
     addCircleToEnd (value:Circle ){
         this._circles.push(value)
     }
 }
-//% blockNamespace=circle
-class Circle {
-        _sprite: Sprite = null;
-        _img: Image = null;
-        _radius: number = 0;
-        _color: number = 0;
-        _fillColor: number = 0;
-        _filled: boolean = false;
-        _text:string = ""
-        imageWH: number = 0;
-        centerXY:number = 0;
-        constructor(radius: number, color: number, filled: boolean = false) {
-            this._radius = radius;
-            this._color = color;
-            this._fillColor = 0;
-            this._text = ""
-            this._filled = filled;
-            if(this._filled){
-                this._fillColor =  this._color;
-            }
-            this.imageWH = 2 * (this._radius + 2);
-            this.centerXY = this.imageWH / 2;
-            this._img = image.create(this.imageWH, this.imageWH);
-            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
-            if (this._filled) {
-                this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
-            }
-            this._sprite = sprites.create(this._img);
-        }
-        //% group="Circle" weight=98
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="sprite"
-        get circle(): Sprite {
-            return this._sprite;
-        }
-        //% group="Circle"  weight=97
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="color"
-        get color(): number {
-            return this._color;
-        }
-        //% group="Circle"  weight=97
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="color"
-        set color(value: number) {
-            this._color = value;
-            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
-        }
-        //% group="Circle"  weight=95
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="text"
-        get text(): string {
-            return this._text;
-        }
-        //% group="Circle"  weight=95
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="text"
-        set text(value: string) {
-            this._text = value;
-        }
-        //% group="Circle"  weight=94
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="radius"
-        get radius(): number {
-            return this._radius;
-        }
-        //% group="Circle"  weight=93
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="Fill Color
-        get fillColor() {
-            return this._fillColor;
-        }
-        //% group="Circle" weight=93
-        //% block="fill %Circle(myCircle) with color $color"
-        fill(color: number) {
-            this._filled = true;
-            this._fillColor = color;
-            this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
-        }
-        //% group="Circle" weight=93
-        //% block="erase fill from %Circle(myCircle)"
-        unfill() {
-            this._filled = false;
-            this._fillColor = 0;
-            this._img.fill(0);  //clear anything in image
-            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
-        }
-        destroy(){
-            if(this._sprite != null){
-                this._sprite.destroy()
-            }
-        }
 
-    }
