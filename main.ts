@@ -53,7 +53,18 @@ class Circle {
         get circle(): Sprite {
             return this._sprite;
         }
-
+        //% group="Properties" 
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="data number"
+        get dataNumber(): number {
+            return this._dataNumber;
+        }
+        //% group="Properties"  
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="data number"
+        set dataNumber(value: number) {
+            this._dataNumber = value;
+        }
         //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="color"
@@ -67,7 +78,7 @@ class Circle {
             this._color = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-          //% group="Properties" 
+        //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="radius"
         get radius(): number {
@@ -79,8 +90,6 @@ class Circle {
         get fillColor() {
             return this._fillColor;
         }
-        
-
         //% group="Properties"  
         //% blockSetVariable="myCircle"
         //% blockCombine block="text"
@@ -93,18 +102,7 @@ class Circle {
         set text(value: string) {
             this._dataText = value;
         }
-        //% group="Properties" 
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="data number"
-        get dataNumber(): number {
-            return this._dataNumber;
-        }
-        //% group="Properties"  
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="data number"
-        set dataNumber(value: number) {
-            this._dataNumber = value;
-        }
+
         //% group="Actions" 
         //% block="fill %Circle(myCircle) || with color $color"
         fill(color: number = -1 ){
