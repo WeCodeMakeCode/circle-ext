@@ -92,14 +92,14 @@ class Circle {
         }
         //% group="Properties"  
         //% blockSetVariable="myCircle"
-        //% blockCombine block="color"
+        //% blockCombine block="fill color"
         set fillColor(value: number) {
             this._fillColor = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
         //% group="Properties" 
         //% blockSetVariable="myCircle"
-        //% blockCombine block="Fill Color
+        //% blockCombine block="fill color"
         get fillColor() {
             return this._fillColor;
         }
