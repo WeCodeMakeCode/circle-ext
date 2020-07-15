@@ -1,6 +1,6 @@
 
 //% weight=100 color=#008080 
-//% groups=[ "Create", "Properties", "Data Propertion", "Actions"]
+//% groups=[ "Create", "Properties",  "Actions"]
 namespace circle {
     //% group="Create" 
     //% block="create circle of radius %radius and color $color || fill=$filled"
@@ -131,7 +131,7 @@ class Circle {
     }
 //% weight=100 color=#008080 
 //% groups=["List", "List Beginning", "List Middle", "List End"]
-namespace circleList {
+namespace circlelist {
     //% group="Create" weight=90
     //% blockSetVariable=myCircleList
     //% block="empty circle list"
@@ -139,7 +139,7 @@ namespace circleList {
         return new CircleList()
     }
 }
-//% blockNamespace=circleList
+//% blockNamespace=circlelist
 class CircleList{
     _circles: Circle[] = []
     constructor(){
