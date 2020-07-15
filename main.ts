@@ -53,12 +53,7 @@ class Circle {
         get circle(): Sprite {
             return this._sprite;
         }
-        //% group="Properties" 
-        //% blockSetVariable="myCircle"
-        //% blockCombine block="radius"
-        get radius(): number {
-            return this._radius;
-        }
+
         //% group="Properties" 
         //% blockSetVariable="myCircle"
         //% blockCombine block="color"
@@ -72,17 +67,11 @@ class Circle {
             this._color = value;
             this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
-        //% group="Actions" 
-        //% block="fill %Circle(myCircle) || with color $color"
-        fill(color: number = -1 ){
-            this._filled = true
-            if (color == -1)
-            {
-               this._fillColor = this._color
-            } else {
-                this._fillColor = color
-            }
-            this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
+          //% group="Properties" 
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="radius"
+        get radius(): number {
+            return this._radius;
         }
         //% group="Properties" 
         //% blockSetVariable="myCircle"
@@ -90,14 +79,8 @@ class Circle {
         get fillColor() {
             return this._fillColor;
         }
-        //% group="Actions" 
-        //% block="erase fill from %Circle(myCircle)"
-        unfill() {
-            this._filled = false;
-            this._fillColor = 0;
-            this._img.fill(0);  //clear anything in image
-            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
-        }
+        
+
         //% group="Properties"  
         //% blockSetVariable="myCircle"
         //% blockCombine block="text"
@@ -121,6 +104,26 @@ class Circle {
         //% blockCombine block="data number"
         set dataNumber(value: number) {
             this._dataNumber = value;
+        }
+        //% group="Actions" 
+        //% block="fill %Circle(myCircle) || with color $color"
+        fill(color: number = -1 ){
+            this._filled = true
+            if (color == -1)
+            {
+               this._fillColor = this._color
+            } else {
+                this._fillColor = color
+            }
+            this._img.fillCircle(this.centerXY, this.centerXY, this._radius, this._fillColor)
+        }
+        //% group="Actions" 
+        //% block="erase fill from %Circle(myCircle)"
+        unfill() {
+            this._filled = false;
+            this._fillColor = 0;
+            this._img.fill(0);  //clear anything in image
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
         destroy(){
             if(this._sprite != null){
