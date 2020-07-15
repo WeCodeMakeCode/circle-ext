@@ -190,7 +190,19 @@ class CircleList{
     /*
         middle
     */
-    //% group="List Middle" weight=83
+    //% group="List Middle" 
+    //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
+    insertCircleAt (value:Circle , index:number){
+        this._circles.insertAt(index, value)
+    }
+    //% group="List Middle" 
+    //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
+    setCircleAt (index:number , value:Circle){
+         if(index < this.length()){
+            this._circles[index] = value;
+         }
+    }
+    //% group="List Middle" 
     //% block="%myCircleList get circle at %index"
     getCircleAt(index:number):Circle {
         if(index < this.length() )
@@ -199,7 +211,7 @@ class CircleList{
         }
         return null
     }
-    //% group="List Middle" weight=82
+    //% group="List Middle" 
     //% block="%myCircleList get and remove circle at %index"
     getAndRemoveCircleAt(index:number):Circle {
         if(this.length() > 0)
@@ -208,7 +220,7 @@ class CircleList{
         }
         return null
     }
-    //% group="List Middle" weight=81
+    //% group="List Middle" 
     //% block="%myCircleList remove and destroy circle at %index"
     removeAndDestroyCircleAt(index:number){
         if(this.length() > 0)
@@ -217,18 +229,7 @@ class CircleList{
             tmp.destroy()
         }
     }
-    //% group="List Middle" weight=81
-    //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
-    setCircleAt (index:number , value:Circle){
-         if(index < this.length()){
-            this._circles[index] = value;
-         }
-    }
-    //% group="List Middle" weight=81
-    //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
-    insertCircleAt (value:Circle , index:number){
-        this._circles.insertAt(index, value)
-    }
+
     /*
         end
     */
