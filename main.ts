@@ -49,14 +49,14 @@ class Circle {
         }
         //% group="Properties"  
         //% blockSetVariable="myCircle"
-        //% blockCombine block="text"
-        get text(): string {
+        //% blockCombine block="data text"
+        get datatext(): string {
             return this._dataText;
         }
         //% group="Properties"  
         //% blockSetVariable="myCircle"
-        //% blockCombine block="text"
-        set text(value: string) {
+        //% blockCombine block="data text"
+        set datatext(value: string) {
             this._dataText = value;
         }
         //% group="Properties" 
@@ -89,6 +89,13 @@ class Circle {
         //% blockCombine block="radius"
         get radius(): number {
             return this._radius;
+        }
+        //% group="Properties"  
+        //% blockSetVariable="myCircle"
+        //% blockCombine block="color"
+        set fillColor(value: number) {
+            this._fillColor = value;
+            this._img.drawCircle(this.centerXY, this.centerXY, this._radius, this._color);
         }
         //% group="Properties" 
         //% blockSetVariable="myCircle"
