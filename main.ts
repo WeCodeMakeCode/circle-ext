@@ -106,7 +106,7 @@ class Circle {
     //% group="Properties"
     //% blockSetVariable="myCircle"
     //% blockCombine block="sprite"
-    get circle(): Sprite {
+    get sprite(): Sprite {
         return this._sprite;
     }
     //% group="Actions" 
@@ -213,6 +213,14 @@ class CircleList{
         if(this.length() > 0)
         {
             return this._circles.removeAt(index)
+        }
+        return null
+    }
+    //% group="List Middle" 
+    //% block="%myCircleList get circle with sprite %mySprite"
+    getCircleWithSprite(s:Sprite):Circle {
+        for(let i = 0; i < this.length(); i++) {
+            if(this._circles[i].sprite == s) return this._circles[i]  
         }
         return null
     }
