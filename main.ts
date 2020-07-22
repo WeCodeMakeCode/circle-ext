@@ -102,7 +102,6 @@ class Circle {
     get fillColor() {
         return this._fillColor;
     }
-
     //% group="Properties"
     //% blockSetVariable="myCircle"
     //% blockCombine block="sprite"
@@ -196,56 +195,6 @@ class CircleList{
         this._circles.insertAt(0, null)
     }
     /*
-        middle
-    */
-    //% group="List Middle" 
-    //% block="%myCircleList remove and destroy circle at %index"
-    removeAndDestroyCircleAt(index:number){
-        if(this.length() > 0)
-        {
-            let tmp = this._circles.removeAt(index)
-            tmp.destroy()
-        }
-    }
-    //% group="List Middle" 
-    //% block="%myCircleList get and remove circle at %index"
-    getAndRemoveCircleAt(index:number):Circle {
-        if(this.length() > 0)
-        {
-            return this._circles.removeAt(index)
-        }
-        return null
-    }
-    //% group="List Middle" 
-    //% block="%myCircleList get circle with sprite %mySprite"
-    getCircleWithSprite(s:Sprite):Circle {
-        for(let i = 0; i < this.length(); i++) {
-            if(this._circles[i].sprite == s) return this._circles[i]  
-        }
-        return null
-    }
-    //% group="List Middle" 
-    //% block="%myCircleList get circle at %index"
-    getCircleAt(index:number):Circle {
-        if(index < this.length() )
-        {
-            return this._circles[index]
-        }
-        return null
-    }
-    //% group="List Middle" 
-    //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
-    setCircleAt (index:number , value:Circle){
-         if(index < this.length()){
-            this._circles[index] = value;
-         }
-    }
-    //% group="List Middle" 
-    //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
-    insertCircleAt (value:Circle , index:number){
-        this._circles.insertAt(index, value)
-    }
-    /*
         end
     */
     //% group="List End"
@@ -271,5 +220,56 @@ class CircleList{
     addCircleToEnd (value:Circle ){
         this._circles.push(value)
     }
+    /*
+        other
+    */
+    //% group="List Other" 
+    //% block="%myCircleList remove and destroy circle at %index"
+    removeAndDestroyCircleAt(index:number){
+        if(this.length() > 0)
+        {
+            let tmp = this._circles.removeAt(index)
+            tmp.destroy()
+        }
+    }
+    //% group="List Other" 
+    //% block="%myCircleList get and remove circle at %index"
+    getAndRemoveCircleAt(index:number):Circle {
+        if(this.length() > 0)
+        {
+            return this._circles.removeAt(index)
+        }
+        return null
+    }
+    //% group="List Other" 
+    //% block="%myCircleList get circle with sprite %mySprite"
+    getCircleWithSprite(s:Sprite):Circle {
+        for(let i = 0; i < this.length(); i++) {
+            if(this._circles[i].sprite == s) return this._circles[i]  
+        }
+        return null
+    }
+    //% group="List Other" 
+    //% block="%myCircleList get circle at %index"
+    getCircleAt(index:number):Circle {
+        if(index < this.length() )
+        {
+            return this._circles[index]
+        }
+        return null
+    }
+    //% group="List Other" 
+    //% block="%myCircleList set circle at %index to %value=variables_get(myCircle)"
+    setCircleAt (index:number , value:Circle){
+         if(index < this.length()){
+            this._circles[index] = value;
+         }
+    }
+    //% group="List Other" 
+    //% block="%myCircleList insert %value=variables_get(myCircle) at %index"
+    insertCircleAt (value:Circle , index:number){
+        this._circles.insertAt(index, value)
+    }
+
 }
 
