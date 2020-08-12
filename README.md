@@ -6,7 +6,8 @@ Circle Ext Good includes Blocks for two categories: Circle and CircleList. I am 
 
 This extension enables a MakeCode Arcade Block program to easily create circles of varying size and color. Blocks are provided to manipulate the created circles. Each circle has a unique sprite that is available as a property so that all features of sprites can be used. However, since circles are created in JavaScript as a class, arrays are not available. Thus the CircleList was born, which offers all the desired functionally of arrays.
 
-
+## Circle Extension Blocks
+![](Circle-ext-good-blocks.gif)
 
 ## Use this extension
 
